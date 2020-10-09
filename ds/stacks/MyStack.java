@@ -1,20 +1,28 @@
 package ds.stacks;
 
 public class MyStack {
-    int maxSize;
-    long[] data;
-    int top = -1;
+    private int maxSize;
+    private char[] data;
+    private int top = -1;
 
     public MyStack(int maxSize) {
         this.maxSize = maxSize;
-        data = new long[maxSize];
+        data = new char[maxSize];
     }
 
-    void push(long element) {
+    void push(char element) {
+        if(isFull()) {
+            System.out.println("The stack is already full");
+            return;
+        }
         data[++top] = element;
     }
 
-    long pop() {
+    char pop() {
+        if(isEmpty()) {
+            System.out.println("The stack is already empty");
+            return '0';
+        }
         int oldIndex = top--;
         return data[oldIndex];
     }
@@ -23,7 +31,11 @@ public class MyStack {
         return top==-1;
     }
 
-    long peek() {
+    boolean isFull() {
+        return top==maxSize-1;
+    }
+
+    char peek() {
         return data[top];
     }
 }
