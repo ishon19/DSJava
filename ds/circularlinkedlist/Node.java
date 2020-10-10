@@ -1,8 +1,8 @@
-package ds.linkedlist;
+package ds.circularlinkedlist;
 
 public class Node {
     public int data;
-    public Node next;
+    public ds.linkedlist.Node next;
 
     void displayNode() {
         System.out.print(data+"->");
